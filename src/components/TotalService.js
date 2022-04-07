@@ -1,13 +1,26 @@
-import { Retiree } from "./Retiree"; 
+
 import { fedServiceTime } from "./ServiceDates";
 import { militaryTime } from "./MilitaryService";
+import { sickLeave} from "./AgeLeave";
+import moment from "moment";
 
 const TotalService = ()=> {
-    const totalYears = fedServiceTime.years + militaryTime.years;
-    const totalMonths = fedServiceTime.months + militaryTime.months;
-    const totalDays = fedServiceTime.days + militaryTime.days;
-   console.log("fed years", fedServiceTime.years);
-    console.log("total years", totalYears);
+
+    let totalYears;
+    let totalMonths;
+    let totalDays;
+
+    function calcTotalService(){
+        let fedDays = moment.duration(fedServiceTime.days, 'd');
+        let milDays = moment.duration(militaryTime.days, 'd');
+        let sickDays = moment.duration(sickLeave.days, 'd');
+        let totalDays = fedDays.add(milDays).days();
+        // totalYears = fedServiceTime.years + militaryTime.years;
+        // totalMonths = fedServiceTime.months + militaryTime.months + sickLeave.months;
+        // totalDays = fedServiceTime.days + militaryTime.days + sickLeave.days;
+    }
+    
+    calcTotalService();
     return (
         <div className="ml-5">
             <p>

@@ -2,12 +2,14 @@
 import { useState } from "react";
 import { SickLeave } from "./SickLeave";
 
+let sickLeave;
+
 const AgeLeave = ()=> {
     let [sickLeaveBalance, setSickLeaveBalance] = useState(0);
     let [retirementAge, setRetirementAge]= useState(0);
 
-   let sickLeave = new SickLeave(sickLeaveBalance);
-   sickLeave.calcSickLeave();
+    sickLeave = new SickLeave(sickLeaveBalance);
+    sickLeave.calcSickLeave();
 
     return (
         <div className="bg-red-100 border-r-2 border-b-2 border-l-2 border-light-blue-500 rounded-b-md pl-4 pr-4 pb-4">
@@ -38,4 +40,5 @@ const AgeLeave = ()=> {
 }
 
 export default AgeLeave;
+export {sickLeave};
    

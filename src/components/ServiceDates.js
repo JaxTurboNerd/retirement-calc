@@ -13,6 +13,7 @@ const ServiceDates = () => {
     //ServiceTime.computeServiceTime(startDate, endDate);
     fedServiceTime = new ServiceTime(startDate, endDate);
     fedServiceTime.computeServiceTime();
+    console.log("Total days:", fedServiceTime.totalDays);
 
     if(fedServiceTime.startDate !== ""){
       fedServiceTime.startDate = moment(fedServiceTime.startDate).format("MMM Do YYYY");

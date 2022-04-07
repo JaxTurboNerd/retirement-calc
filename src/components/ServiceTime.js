@@ -4,6 +4,7 @@ class ServiceTime {
     years = 0;
     months = 0;
     days = 0;
+    totalDays = 0;
     //Constructor to create new objects of this type:
     constructor(startDate, endDate) {
       this.startDate = startDate;
@@ -26,6 +27,7 @@ class ServiceTime {
         this.years = finalServiceTime.years();
         this.months = finalServiceTime.months();
         this.days = finalServiceTime.days() + 1;
+        this.totalDays = finalServiceTime.asDays();
       }
     }
 };
